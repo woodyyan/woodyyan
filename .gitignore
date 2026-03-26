@@ -11,3 +11,5 @@ pnpm-debug.log*
 .workbuddy/
 data/*.db
 data/*.sqlite
+data/*.db-*
+data/*.sqlite-*

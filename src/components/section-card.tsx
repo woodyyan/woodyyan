@@ -40,7 +40,7 @@ function SectionCardBody({ item, available }: { item: SectionItem; available: bo
           </p>
           <p
             className={`font-display leading-[0.95] tracking-[-0.035em] text-balance ${
-              available ? "text-[clamp(2.4rem,4vw,3.3rem)]" : "text-[clamp(2rem,3.4vw,2.8rem)]"
+              available ? "text-[clamp(2rem,3.2vw,2.75rem)]" : "text-[clamp(1.7rem,2.8vw,2.3rem)]"
             }`}
           >
             {item.title}

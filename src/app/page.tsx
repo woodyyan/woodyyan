@@ -26,7 +26,7 @@ export default function Home() {
               Current spaces.
             </h2>
             <p className="max-w-sm text-sm leading-7 text-[var(--muted)] sm:text-base">
-              不再只限三个方向，这里会继续增加。已上线的可直接进入，未上线的先保留位置。
+              这里会继续增加，按工具、阅读、交易、影像与音乐展开。已上线的可直接进入，未上线的先保留位置。
             </p>
           </div>
 

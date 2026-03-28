@@ -9,7 +9,7 @@ type SectionGridProps = {
 
 export function SectionGrid({ items }: SectionGridProps) {
   return (
-    <div className="grid gap-5 md:grid-cols-2">
+    <div className="grid gap-6 md:grid-cols-2">
       {items.map((item) => (
         <SectionCard key={item.id} item={item} />
       ))}

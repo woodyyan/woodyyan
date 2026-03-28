@@ -6,6 +6,7 @@ export type SectionItem = {
   title: string;
   summary: string;
   note: string;
+  category: string;
   href?: string;
   cta: string;
   surfaceClassName: string;
@@ -33,9 +34,10 @@ export const sectionItems: SectionItem[] = [
   {
     id: "baby-naming",
     index: "01",
-    title: "Baby Naming",
-    summary: "取名网站，提供名字灵感与方向。",
+    title: "诗名 - Baby naming",
+    summary: "给名字这件事一个更清晰的起点：灵感、方向和筛选都从这里开始。",
     note: "取名 / 工具",
+    category: "Tool",
     href: "https://babynaming.woodyyan.com",
     cta: "Visit",
     surfaceClassName: "surface-products",
@@ -46,9 +48,10 @@ export const sectionItems: SectionItem[] = [
   {
     id: "news",
     index: "02",
-    title: "News",
-    summary: "新闻网站，作为日常信息阅读与整理入口。",
+    title: "Woody News",
+    summary: "把日常信息流收进一个更安静的入口，用来阅读、浏览和继续延伸。",
     note: "新闻 / 阅读",
+    category: "Media",
     href: "https://news.woodyyan.com",
     cta: "Visit",
     surfaceClassName: "surface-photography",
@@ -59,9 +62,10 @@ export const sectionItems: SectionItem[] = [
   {
     id: "trader",
     index: "03",
-    title: "Trader",
-    summary: "炒股网站，承载交易观察、记录与工具。",
+    title: "卧龙股票系统",
+    summary: "交易观察、市场记录和个人判断被整理成一个独立的工作台。",
     note: "交易 / 观察",
+    category: "Finance",
     href: "https://trader.woodyyan.com",
     cta: "Visit",
     surfaceClassName: "surface-songs",
@@ -72,9 +76,10 @@ export const sectionItems: SectionItem[] = [
   {
     id: "photography",
     index: "04",
-    title: "Photography",
-    summary: "摄影网站会放在这里，域名后续再补上。",
+    title: "Photo Journal",
+    summary: "影像入口会放在这里，留给光线、地点和路过时想保留的片刻。",
     note: "观察 / 留白",
+    category: "Photo",
     cta: "Coming soon",
     surfaceClassName: "surface-photography",
     surfaceLabel: "Light / Place",
@@ -84,9 +89,10 @@ export const sectionItems: SectionItem[] = [
   {
     id: "new-songs",
     index: "05",
-    title: "New Songs",
-    summary: "新歌与 Demo 的独立入口，域名暂时未定。",
+    title: "Song Drafts",
+    summary: "新歌与 Demo 会在这里继续生长，给旋律和词句一个独立落点。",
     note: "旋律 / 情绪",
+    category: "Music",
     cta: "Coming soon",
     surfaceClassName: "surface-products",
     surfaceLabel: "Lyrics / Demo",

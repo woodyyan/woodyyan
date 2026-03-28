@@ -101,9 +101,3 @@ export const sectionItems: SectionItem[] = [
   },
 ];
 
-export const aboutContent = {
-  title: "Elsewhere",
-  paragraphs: [
-    "我把网站、照片和歌曲分开放，因为它们需要不同的节奏。这里负责指路，不负责说尽。",
-  ],
-} as const;

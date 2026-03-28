@@ -1,9 +1,8 @@
-import { AboutSection } from "@/components/about-section";
 import { Hero } from "@/components/hero";
 import { SectionGrid } from "@/components/section-grid";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { aboutContent, heroContent, sectionItems } from "@/content/site-content";
+import { heroContent, sectionItems } from "@/content/site-content";
 
 export const revalidate = 3600;
 
@@ -33,7 +32,6 @@ export default function Home() {
           <SectionGrid items={sectionItems} />
         </section>
 
-        <AboutSection content={aboutContent} />
         <SiteFooter />
       </div>
     </main>

@@ -26,7 +26,7 @@ export const heroContent = {
   },
   secondaryCta: {
     label: "Contact",
-    href: "mailto:hello@example.com",
+    href: "mailto:woodyyan@outlook.com",
   },
 } as const;
 

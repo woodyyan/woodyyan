@@ -1,13 +1,17 @@
+export type SectionStatus = "live" | "soon";
+
 export type SectionItem = {
-  id: "products" | "photography" | "songs";
+  id: string;
   index: string;
   title: string;
   summary: string;
   note: string;
-  href: string;
+  href?: string;
   cta: string;
   surfaceClassName: string;
   surfaceLabel: string;
+  status: SectionStatus;
+  meta: string;
 };
 
 export const heroContent = {
@@ -27,37 +31,67 @@ export const heroContent = {
 
 export const sectionItems: SectionItem[] = [
   {
-    id: "products",
+    id: "baby-naming",
     index: "01",
-    title: "Websites / Apps",
-    summary: "Digital products and interfaces.",
-    note: "构建 / 界面",
-    href: "https://example.com/works",
-    cta: "Open",
+    title: "Baby Naming",
+    summary: "取名网站，提供名字灵感与方向。",
+    note: "取名 / 工具",
+    href: "https://babynaming.woodyyan.com",
+    cta: "Visit",
     surfaceClassName: "surface-products",
-    surfaceLabel: "Product / System",
+    surfaceLabel: "Naming / Utility",
+    status: "live",
+    meta: "babynaming.woodyyan.com",
+  },
+  {
+    id: "news",
+    index: "02",
+    title: "News",
+    summary: "新闻网站，作为日常信息阅读与整理入口。",
+    note: "新闻 / 阅读",
+    href: "https://news.woodyyan.com",
+    cta: "Visit",
+    surfaceClassName: "surface-photography",
+    surfaceLabel: "Reading / Feed",
+    status: "live",
+    meta: "news.woodyyan.com",
+  },
+  {
+    id: "trader",
+    index: "03",
+    title: "Trader",
+    summary: "炒股网站，承载交易观察、记录与工具。",
+    note: "交易 / 观察",
+    href: "https://trader.woodyyan.com",
+    cta: "Visit",
+    surfaceClassName: "surface-songs",
+    surfaceLabel: "Market / Tools",
+    status: "live",
+    meta: "trader.woodyyan.com",
   },
   {
     id: "photography",
-    index: "02",
+    index: "04",
     title: "Photography",
-    summary: "Light, places, passing moments.",
+    summary: "摄影网站会放在这里，域名后续再补上。",
     note: "观察 / 留白",
-    href: "https://example.com/photo",
-    cta: "Open",
+    cta: "Coming soon",
     surfaceClassName: "surface-photography",
     surfaceLabel: "Light / Place",
+    status: "soon",
+    meta: "Domain pending",
   },
   {
-    id: "songs",
-    index: "03",
-    title: "Songs",
-    summary: "Melodies and words worth keeping.",
+    id: "new-songs",
+    index: "05",
+    title: "New Songs",
+    summary: "新歌与 Demo 的独立入口，域名暂时未定。",
     note: "旋律 / 情绪",
-    href: "https://example.com/songs",
-    cta: "Open",
-    surfaceClassName: "surface-songs",
+    cta: "Coming soon",
+    surfaceClassName: "surface-products",
     surfaceLabel: "Lyrics / Demo",
+    status: "soon",
+    meta: "Domain pending",
   },
 ];
 

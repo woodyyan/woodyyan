@@ -4,20 +4,15 @@ type SectionCardProps = {
   item: SectionItem;
 };
 
-export function SectionCard({ item }: SectionCardProps) {
+function SectionCardBody({ item, available }: { item: SectionItem; available: boolean }) {
   return (
-    <a
-      href={item.href}
-      target="_blank"
-      rel="noreferrer"
-      className="group editorial-panel flex min-h-[25rem] flex-col overflow-hidden rounded-[1.75rem] transition-transform duration-500 hover:-translate-y-1"
-    >
+    <>
       <div
-        className={`relative flex min-h-[13rem] flex-1 flex-col justify-between overflow-hidden px-5 py-5 text-white ${item.surfaceClassName}`}
+        className={`relative flex min-h-[12rem] flex-1 flex-col justify-between overflow-hidden px-5 py-5 text-white ${item.surfaceClassName}`}
       >
         <div className="flex items-center justify-between text-xs uppercase tracking-[0.28em] text-white/72">
           <span>{item.index}</span>
-          <span>External</span>
+          <span>{available ? "Live" : "Soon"}</span>
         </div>
 
         <div className="relative space-y-2">
@@ -31,7 +26,12 @@ export function SectionCard({ item }: SectionCardProps) {
       </div>
 
       <div className="flex flex-col gap-4 px-5 py-5 sm:px-6 sm:py-6">
-        <p className="text-base leading-7 text-[var(--text)]/88">{item.summary}</p>
+        <div className="space-y-3">
+          <p className="text-base leading-7 text-[var(--text)]/88">{item.summary}</p>
+          <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--muted)]">
+            {item.meta}
+          </p>
+        </div>
 
         <div className="flex items-center justify-between gap-4 border-t border-[var(--line)] pt-4 text-xs uppercase tracking-[0.28em] text-[var(--muted)]">
           <span className="rounded-full bg-[var(--background-strong)] px-3 py-1 text-[11px] tracking-[0.2em] text-[var(--accent)]">
@@ -43,13 +43,34 @@ export function SectionCard({ item }: SectionCardProps) {
             </span>
             <span
               aria-hidden
-              className="text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[var(--accent)]"
+              className={`text-lg transition-transform duration-300 ${available ? "group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[var(--accent)]" : "opacity-40"}`}
             >
-              ↗
+              {available ? "↗" : "—"}
             </span>
           </span>
         </div>
       </div>
+    </>
+  );
+}
+
+export function SectionCard({ item }: SectionCardProps) {
+  const available = Boolean(item.href);
+  const baseClassName = `group editorial-panel flex min-h-[21rem] flex-col overflow-hidden rounded-[1.75rem] ${
+    available ? "transition-transform duration-500 hover:-translate-y-1" : "cursor-default opacity-90"
+  }`;
+
+  if (!available) {
+    return (
+      <div aria-disabled="true" className={baseClassName}>
+        <SectionCardBody item={item} available={available} />
+      </div>
+    );
+  }
+
+  return (
+    <a href={item.href} target="_blank" rel="noreferrer" className={baseClassName}>
+      <SectionCardBody item={item} available={available} />
     </a>
   );
 }

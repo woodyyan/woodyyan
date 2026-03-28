@@ -23,10 +23,10 @@ export default function Home() {
               Overview
             </p>
             <h2 className="font-display text-4xl leading-none text-balance sm:text-5xl">
-              Three directions.
+              Current spaces.
             </h2>
             <p className="max-w-sm text-sm leading-7 text-[var(--muted)] sm:text-base">
-              每个入口都通往更完整的独立地址。
+              不再只限三个方向，这里会继续增加。已上线的可直接进入，未上线的先保留位置。
             </p>
           </div>
 

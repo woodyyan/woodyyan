@@ -21,9 +21,9 @@ export default function OpenGraphImage() {
           justifyContent: "space-between",
           padding: "72px",
           position: "relative",
-          backgroundColor: "#FAF0E6",
-          color: "#171311",
-          border: "1px solid rgba(89,53,34,0.14)",
+          backgroundColor: "#F3EFE8",
+          color: "#161514",
+          border: "1px solid rgba(56,51,45,0.14)",
         }}
       >
         <div
@@ -31,10 +31,10 @@ export default function OpenGraphImage() {
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "radial-gradient(circle at 12% 14%, rgba(199,101,61,0.18), transparent 28%)",
+              "radial-gradient(circle at 12% 14%, rgba(102,112,95,0.16), transparent 28%)",
           }}
         />
-        <div style={{ fontSize: 24, letterSpacing: "0.45em", textTransform: "uppercase", color: "#C7653D", position: "relative" }}>
+        <div style={{ fontSize: 24, letterSpacing: "0.45em", textTransform: "uppercase", color: "#66705F", position: "relative" }}>
           Personal index
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>

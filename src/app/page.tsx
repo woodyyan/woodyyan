@@ -10,7 +10,7 @@ export const revalidate = 3600;
 export default function Home() {
   return (
     <main className="relative overflow-hidden px-5 py-5 sm:px-8 lg:px-10">
-      <div className="mx-auto flex min-h-[calc(100vh-2.5rem)] max-w-6xl flex-col rounded-[2rem] border border-[var(--line)] bg-white/36 px-5 pb-8 pt-4 shadow-[0_40px_120px_rgba(78,46,31,0.1)] backdrop-blur-sm sm:px-8 lg:px-12 lg:pb-12">
+      <div className="mx-auto flex min-h-[calc(100vh-2.5rem)] max-w-6xl flex-col rounded-[2rem] border border-[var(--line)] bg-white/44 px-5 pb-8 pt-4 shadow-[0_40px_120px_rgba(43,38,31,0.08)] backdrop-blur-sm sm:px-8 lg:px-12 lg:pb-12">
         <SiteHeader />
         <Hero content={heroContent} />
 

@@ -50,13 +50,13 @@ export function Hero({ content }: HeroProps) {
 
       <div className="editorial-panel rounded-[1.75rem] p-4 sm:p-5">
         <div className="flex h-full flex-col gap-4">
-          <div className="relative overflow-hidden rounded-[1.5rem] border border-white/40 bg-[linear-gradient(140deg,rgba(199,101,61,0.96),rgba(87,41,28,0.9))] px-5 py-5 text-white">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,234,214,0.46),transparent_34%)]" />
+          <div className="relative overflow-hidden rounded-[1.5rem] border border-white/40 bg-[linear-gradient(140deg,rgba(88,96,80,0.96),rgba(33,35,31,0.92))] px-5 py-5 text-white">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(238,231,219,0.34),transparent_34%)]" />
             <div className="relative space-y-2">
               <p className="text-[11px] uppercase tracking-[0.32em] text-white/72">
-                Current tone
+                Current palette
               </p>
-              <p className="font-display text-3xl leading-none">Warm / Quiet / Clear</p>
+              <p className="font-display text-3xl leading-none">Soft / Calm / Refined</p>
             </div>
           </div>
 

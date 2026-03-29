@@ -11,10 +11,6 @@ export function Hero({ content }: HeroProps) {
   return (
     <section className="grid gap-8 py-12 lg:grid-cols-[minmax(0,1.7fr)_minmax(290px,0.72fr)] lg:items-end lg:py-18">
       <div className="space-y-6">
-        <p className="text-xs uppercase tracking-[0.32em] text-[var(--accent)]">
-          {content.eyebrow}
-        </p>
-
         <div className="space-y-4">
           <h1 className="font-display text-[clamp(4.5rem,11vw,9rem)] leading-[0.88] tracking-[-0.04em] text-balance">
             {content.title}

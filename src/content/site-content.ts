@@ -16,7 +16,6 @@ export type SectionItem = {
 };
 
 export const heroContent = {
-  eyebrow: "Selected work / 2026",
   title: "Woody Yan",
   subtitle: "Digital work, photographs, songs.",
   description: ["一个只放概览的个人入口页。"],

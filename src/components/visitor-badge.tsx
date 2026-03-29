@@ -47,7 +47,7 @@ export function VisitorBadge() {
   }, []);
 
   const label = error
-    ? "Visitor record unavailable"
+    ? "Visitor note is taking a quiet pause."
     : state
       ? `Visitor No. ${formatVisitorCount(state.visitorCount)}`
       : "Counting quiet arrivals...";

@@ -8,24 +8,38 @@
 - React 19
 - TypeScript
 - Tailwind CSS 4
-- Node 内置 `node:sqlite`
+- Upstash Redis（作为 Vercel 上的轻量 KV 持久化）
 
 ## 本地开发
+
+首次在本地使用 visitor 计数前，先把 Vercel 里的环境变量拉下来：
+
+```bash
+npx vercel@latest env pull .env.development.local
+```
+
+然后安装依赖并启动：
 
 ```bash
 npm install
 npm run dev
 ```
 
+如果你不想立刻拉环境变量，也可以参考 `.env.example` 手动补上：
+
+- `UPSTASH_REDIS_REST_URL`
+- `UPSTASH_REDIS_REST_TOKEN`
+
 默认访问：`http://localhost:3000`
 
 ## 生产部署
 
-这个项目已经启用 `output: "standalone"`，适合部署到自有服务器。
+当前线上部署目标是 Vercel；访客序号这类轻量动态数据通过 Upstash Redis 持久化。
 
 ### 运行要求
 
-- Node.js 22.5+（需要内置 `node:sqlite` 支持）
+- Node.js 当前 LTS 版本
+- 在部署环境中配置 `UPSTASH_REDIS_REST_URL` 与 `UPSTASH_REDIS_REST_TOKEN`
 
 ### 构建与启动
 
@@ -35,11 +49,11 @@ npm run build
 npm run start
 ```
 
-### 建议部署方式
+### Vercel 配置建议
 
-- 使用 Nginx 反向代理到 `next start` 运行的端口
-- 使用 PM2 / systemd 守护进程
-- 将站点根目录下的 `data/` 保留为可写目录，用于保存 SQLite 访客数据
+- 在 Vercel 中安装 Upstash Redis 集成，或手动创建 Upstash Redis 数据库
+- 将 `UPSTASH_REDIS_REST_URL` 和 `UPSTASH_REDIS_REST_TOKEN` 写入项目环境变量
+- 环境变量生效后重新部署一次
 
 ## 需要你后续替换的内容
 

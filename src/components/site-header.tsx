@@ -2,7 +2,6 @@ import { siteMeta } from "@/content/site-meta";
 
 const navItems = [
   { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ] as const;
 

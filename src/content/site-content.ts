@@ -17,8 +17,8 @@ export type SectionItem = {
 
 export const heroContent = {
   title: "Woody Yan",
-  subtitle: "Digital work, photographs, songs.",
-  description: ["一个只放概览的个人入口页。"],
+  subtitle: "这里是我的个人作品入口。",
+  description: ["网站、摄影、音乐和一些正在发生的东西。"],
   primaryCta: {
     label: "Explore",
     href: "#work",

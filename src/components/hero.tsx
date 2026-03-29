@@ -38,13 +38,6 @@ export function Hero({ content }: HeroProps) {
             {content.primaryCta.label}
             <span aria-hidden>↘</span>
           </a>
-          <a
-            href={content.secondaryCta.href}
-            className="inline-flex items-center gap-3 rounded-full border border-transparent px-2 py-3 text-sm uppercase tracking-[0.22em] text-[var(--muted)] transition-colors duration-300 hover:text-[var(--accent)]"
-          >
-            {content.secondaryCta.label}
-            <span aria-hidden>↗</span>
-          </a>
         </div>
       </div>
 

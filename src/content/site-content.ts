@@ -24,10 +24,6 @@ export const heroContent = {
     label: "Explore",
     href: "#work",
   },
-  secondaryCta: {
-    label: "Contact",
-    href: "mailto:woodyyan@outlook.com",
-  },
 } as const;
 
 export const sectionItems: SectionItem[] = [

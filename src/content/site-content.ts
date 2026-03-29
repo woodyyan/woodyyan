@@ -20,7 +20,7 @@ export const heroContent = {
   subtitle: "这里是我的个人作品入口。",
   description: ["网站、摄影、音乐和一些正在发生的东西。"],
   primaryCta: {
-    label: "Explore",
+    label: "探索",
     href: "#work",
   },
 } as const;

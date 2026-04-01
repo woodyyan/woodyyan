@@ -1,62 +1,52 @@
-# Woody Yan — Personal Index
+# Woody Yan
 
-一个偏编辑部气质的个人主页，用来展示作品入口，而不是把所有作品堆在首页。
+> 这里不是完整的作品集，而是一个个人作品入口。
+>
+> 我把正在做的产品、持续积累的影像、还在生长的音乐，以及一些认真做过的小工具，放在这里，像整理一张长期更新的索引。
 
-## 技术栈
+## About
 
-- Next.js 15
-- React 19
-- TypeScript
-- Tailwind CSS 4
-- Upstash Redis（作为 Vercel 上的轻量 KV 持久化）
+Woody Yan，做产品，也写代码。
 
-## 本地开发
+我偏爱那种简单、克制、真正有用的东西：结构要清楚，界面要安静，交互要有分寸，最好再留一点点温度。这个网站也是一样。它不试图把一切都塞进首页，而是只保留概览，把每个方向交还给它自己的空间与节奏。
 
-首次在本地使用 visitor 计数前，先把 Vercel 里的环境变量拉下来：
+## Works
 
-```bash
-npx vercel@latest env pull .env.development.local
-```
+### 已上线
 
-然后安装依赖并启动：
+- **诗名 - Baby naming**  
+  给名字这件事一个更清晰的起点：灵感、方向和筛选都从这里开始。  
+  https://babynaming.woodyyan.com
 
-```bash
-npm install
-npm run dev
-```
+- **Woody News**  
+  把日常信息流收进一个更安静的入口，用来阅读、浏览和继续延伸。  
+  https://news.woodyyan.com
 
-如果你不想立刻拉环境变量，也可以参考 `.env.example` 手动补上：
+- **卧龙股票系统**  
+  交易观察、市场记录和个人判断，被整理成一个独立的工作台。  
+  https://trader.woodyyan.com
 
-- `UPSTASH_REDIS_REST_URL`
-- `UPSTASH_REDIS_REST_TOKEN`
+- **LinguaFlow**  
+  一个放在 Mac 上就能随手使用的翻译小工具，覆盖中英互译与简繁转换。  
+  https://github.com/woodyyan/LinguaFlow
 
-默认访问：`http://localhost:3000`
+### 正在生长
 
-## 生产部署
+- **Photo Journal**  
+  留给光线、地点和路过时想保留的片刻。
 
-当前线上部署目标是 Vercel；访客序号这类轻量动态数据通过 Upstash Redis 持久化。
+- **Song Drafts**  
+  留给旋律、词句和那些还没有完成的情绪。
 
-### 运行要求
+## A note about this site
 
-- Node.js 当前 LTS 版本
-- 在部署环境中配置 `UPSTASH_REDIS_REST_URL` 与 `UPSTASH_REDIS_REST_TOKEN`
+这个仓库承载的是我的个人主页本身。它更像一扇门，而不是展厅。
 
-### 构建与启动
+如果你来到这里，看到的是一个概览式入口：网站、摄影、音乐和一些正在发生的东西。至于更完整的内容，它们会在各自更合适的地方慢慢展开。
 
-```bash
-npm install
-npm run build
-npm run start
-```
+## Elsewhere
 
-### Vercel 配置建议
-
-- 在 Vercel 中安装 Upstash Redis 集成，或手动创建 Upstash Redis 数据库
-- 将 `UPSTASH_REDIS_REST_URL` 和 `UPSTASH_REDIS_REST_TOKEN` 写入项目环境变量
-- 环境变量生效后重新部署一次
-
-## 需要你后续替换的内容
-
-- `src/content/site-content.ts` 里的作品链接和文案
-- `src/content/site-meta.ts` 里的邮箱、社交链接、地点信息
-- 页面里的封面风格和作品标题
+- Email: woodyyan@outlook.com
+- GitHub: https://github.com/woodyyan
+- 小红书: https://xhslink.com/m/AEfh301HT1u
+- 抖音: https://v.douyin.com/mrtD2_0bkqU/

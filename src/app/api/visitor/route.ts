@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
     const visitorCount = await resolveVisitorCount(hasSeenCookie);
 
     const response = NextResponse.json(
-      { visitorCount },
+      { visitorCount, available: true },
       {
         headers: {
           "Cache-Control": "no-store, no-cache, must-revalidate",
@@ -37,12 +37,11 @@ export async function GET(request: NextRequest) {
 
     return response;
   } catch (error) {
-    console.error("Failed to resolve visitor count", error);
+    console.warn("Visitor count temporarily unavailable", error);
 
     return NextResponse.json(
-      { message: "Visitor count unavailable" },
+      { visitorCount: 0, available: false },
       {
-        status: 503,
         headers: {
           "Cache-Control": "no-store, no-cache, must-revalidate",
         },

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 type VisitorState = {
   visitorCount: number;
+  available: boolean;
 };
 
 function formatVisitorCount(visitorCount: number) {
@@ -12,7 +13,6 @@ function formatVisitorCount(visitorCount: number) {
 
 export function VisitorBadge() {
   const [state, setState] = useState<VisitorState | null>(null);
-  const [error, setError] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -23,10 +23,6 @@ export function VisitorBadge() {
           cache: "no-store",
         });
 
-        if (!response.ok) {
-          throw new Error("Failed to load visitor count");
-        }
-
         const data = (await response.json()) as VisitorState;
 
         if (active) {
@@ -34,7 +30,7 @@ export function VisitorBadge() {
         }
       } catch {
         if (active) {
-          setError(true);
+          setState({ visitorCount: 0, available: false });
         }
       }
     }
@@ -46,11 +42,11 @@ export function VisitorBadge() {
     };
   }, []);
 
-  const label = error
-    ? "Visitor note is taking a quiet pause."
-    : state
+  const label = state
+    ? state.available
       ? `Visitor No. ${formatVisitorCount(state.visitorCount)}`
-      : "Counting quiet arrivals...";
+      : "Visitor note is taking a quiet pause."
+    : "Counting quiet arrivals...";
 
   return (
     <div className="space-y-3 rounded-[1.5rem] border border-[var(--line)] bg-[var(--background)]/70 p-4">

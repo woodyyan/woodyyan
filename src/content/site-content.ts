@@ -1,4 +1,5 @@
 export type SectionStatus = "live" | "soon";
+export type SectionPreviewVariant = "default" | "linguaflow";
 
 export type SectionItem = {
   id: string;
@@ -13,6 +14,7 @@ export type SectionItem = {
   surfaceLabel: string;
   status: SectionStatus;
   meta: string;
+  previewVariant?: SectionPreviewVariant;
 };
 
 export const heroContent = {
@@ -81,6 +83,7 @@ export const sectionItems: SectionItem[] = [
     surfaceLabel: "Translate / Utility",
     status: "live",
     meta: "github.com/woodyyan/LinguaFlow",
+    previewVariant: "linguaflow",
   },
   {
     id: "photography",

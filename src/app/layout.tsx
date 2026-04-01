@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Noto_Sans_SC } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 import { siteMeta } from "@/content/site-meta";
 
@@ -46,7 +47,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" className={`${display.variable} ${body.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

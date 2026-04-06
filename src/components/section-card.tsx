@@ -126,11 +126,82 @@ function LinguaflowSurface({ item, available }: { item: SectionItem; available: 
   );
 }
 
+function WolongTraderSurface({ item, available }: { item: SectionItem; available: boolean }) {
+  return (
+    <div
+      className={`relative flex flex-1 flex-col overflow-hidden px-5 py-5 text-[#f5d79a] ${
+        available ? "min-h-[13.5rem]" : "min-h-[11rem]"
+      } bg-[radial-gradient(circle_at_50%_18%,rgba(231,157,59,0.16),transparent_22%),radial-gradient(circle_at_50%_48%,rgba(217,136,26,0.12),transparent_32%),linear-gradient(180deg,#0c0907_0%,#110d09_58%,#0a0807_100%)]`}
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,194,102,0.04),transparent_22%,rgba(0,0,0,0.18)_100%)]" />
+      <div className="absolute inset-x-5 top-0 h-px bg-[#f0bf6a]/24" />
+
+      <div className="relative flex items-start justify-between gap-3 text-xs uppercase tracking-[0.28em] text-[#d7b98a]/66">
+        <span>{item.index}</span>
+        <div className="flex items-center gap-2">
+          <span className="rounded-full border border-[#f0bf6a]/18 bg-white/4 px-2.5 py-1 text-[10px] tracking-[0.24em] text-[#e6c38b]/82">
+            {item.category}
+          </span>
+          <span className="rounded-full border border-[#f0bf6a]/18 bg-[#f0bf6a]/10 px-2.5 py-1 text-[10px] tracking-[0.24em] text-[#f0bf6a]">
+            Live
+          </span>
+        </div>
+      </div>
+
+      <div className="relative mt-4 flex flex-1 flex-col justify-center text-center">
+        <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-[0.9rem] border border-[#f0bf6a]/20 bg-[linear-gradient(180deg,rgba(255,215,143,0.22),rgba(176,101,12,0.16))] shadow-[0_12px_30px_rgba(209,132,29,0.16)]">
+          <span className="text-lg font-black tracking-[-0.08em] text-[#f8dfac]">W↗</span>
+        </div>
+
+        <div className="mt-5 space-y-3">
+          <p className="text-xs uppercase tracking-[0.32em] text-[#d4b589]/60">{item.surfaceLabel}</p>
+          <p className="font-display text-[clamp(2.2rem,3vw,3rem)] leading-[0.98] tracking-[-0.04em] text-transparent bg-[linear-gradient(180deg,#ffe7af_0%,#f3bf62_45%,#dd8f24_100%)] bg-clip-text">
+            {item.title}
+          </p>
+          <p className="text-[0.72rem] font-semibold tracking-[0.18em] text-[#b89263]">
+            智能分析 · 策略回测 · 信号推送
+          </p>
+          <p className="mx-auto max-w-[34rem] text-sm leading-6 text-[#8e8476]">
+            面向个人投资者的 AI 量化分析平台，帮你用数据和策略看清市场，做出更理性的投资决策。
+          </p>
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <span className="inline-flex min-w-[9.5rem] items-center justify-center rounded-[1rem] bg-[linear-gradient(180deg,#f2bc63_0%,#dd902d_100%)] px-4 py-3 text-sm font-semibold text-[#14100b] shadow-[0_12px_30px_rgba(214,136,24,0.28)]">
+            免费开始使用
+          </span>
+          <span className="inline-flex min-w-[9.5rem] items-center justify-center rounded-[1rem] border border-white/12 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-[#b3a28d]">
+            查看功能介绍 ↓
+          </span>
+        </div>
+
+        <div className="mt-6 grid gap-3 md:grid-cols-3">
+          {[
+            ["A股 + 港股", "双市场支持"],
+            ["AI辅助决策", "智能分析选股"],
+            ["100+", "技术指标"],
+          ].map(([value, label]) => (
+            <div
+              key={value}
+              className="rounded-[1.15rem] border border-white/14 bg-white/[0.02] px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
+            >
+              <p className="text-xl font-bold tracking-[-0.03em] text-[#f0bf6a]">{value}</p>
+              <p className="mt-1 text-[11px] tracking-[0.16em] text-[#7f756a]">{label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function SectionCardBody({ item, available }: { item: SectionItem; available: boolean }) {
   return (
     <>
       {item.previewVariant === "linguaflow" ? (
         <LinguaflowSurface item={item} available={available} />
+      ) : item.previewVariant === "wolongtrader" ? (
+        <WolongTraderSurface item={item} available={available} />
       ) : (
         <DefaultSurface item={item} available={available} />
       )}

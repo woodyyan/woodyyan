@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   description: siteMeta.description,
   icons: {
     icon: "/icon.svg",
+    shortcut: "/icon.svg",
   },
   openGraph: {
     title: siteMeta.title,

@@ -1,5 +1,5 @@
 export type SectionStatus = "live" | "soon";
-export type SectionPreviewVariant = "default" | "linguaflow";
+export type SectionPreviewVariant = "default" | "linguaflow" | "wolongtrader";
 
 export type SectionItem = {
   id: string;
@@ -59,16 +59,17 @@ export const sectionItems: SectionItem[] = [
   {
     id: "trader",
     index: "03",
-    title: "卧龙股票系统",
-    summary: "交易观察、市场记录和个人判断被整理成一个独立的工作台。",
-    note: "交易 / 观察",
-    category: "Finance",
-    href: "https://trader.woodyyan.com",
+    title: "卧龙AI量化交易台",
+    summary: "面向个人投资者的 AI 量化分析平台，用数据、策略与信号帮助判断市场。",
+    note: "量化 / AI",
+    category: "Quant",
+    href: "https://wolongtrader.top",
     cta: "Visit",
     surfaceClassName: "surface-songs",
-    surfaceLabel: "Market / Tools",
+    surfaceLabel: "Quant / Signals",
     status: "live",
-    meta: "trader.woodyyan.com",
+    meta: "wolongtrader.top",
+    previewVariant: "wolongtrader",
   },
   {
     id: "linguaflow",

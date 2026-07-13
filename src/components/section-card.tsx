@@ -4,6 +4,73 @@ type SectionCardProps = {
   item: SectionItem;
 };
 
+type SurfaceTone = {
+  text: string;
+  cat: string;
+  live: string;
+  soon: string;
+};
+
+/* Phase 2a: one shared surface header so every card's top band
+   (index · category · status) keeps identical structure & rhythm. */
+function SurfaceHeader({
+  item,
+  available,
+  tone,
+  rule,
+}: {
+  item: SectionItem;
+  available: boolean;
+  tone: SurfaceTone;
+  rule: string;
+}) {
+  return (
+    <>
+      <div className={`absolute inset-x-5 top-0 h-px ${rule}`} />
+      <div
+        className={`relative flex items-start justify-between gap-3 text-xs uppercase tracking-[0.28em] ${tone.text}`}
+      >
+        <span>{item.index}</span>
+        <div className="flex items-center gap-2">
+          <span
+            className={`rounded-full border px-2.5 py-1 text-[10px] tracking-[0.24em] ${tone.cat}`}
+          >
+            {item.category}
+          </span>
+          <span
+            className={`rounded-full px-2.5 py-1 text-[10px] tracking-[0.24em] ${
+              available ? tone.live : tone.soon
+            }`}
+          >
+            {available ? "Live" : "Soon"}
+          </span>
+        </div>
+      </div>
+    </>
+  );
+}
+
+const defaultTone: SurfaceTone = {
+  text: "text-white/72",
+  cat: "border-white/20 bg-white/10 text-white/88",
+  live: "border-white/22 bg-black/12 text-white/88",
+  soon: "border-white/16 bg-white/8 text-white/68",
+};
+
+const linguaTone: SurfaceTone = {
+  text: "text-black/45",
+  cat: "border-black/8 bg-white/55 text-black/62",
+  live: "border-[#1f74ff]/10 bg-[#1f74ff]/12 text-[#1f74ff]",
+  soon: "border-black/10 bg-white/50 text-black/55",
+};
+
+const wolongTone: SurfaceTone = {
+  text: "text-[#d7b98a]/66",
+  cat: "border-[#f0bf6a]/18 bg-white/4 text-[#e6c38b]/82",
+  live: "border-[#f0bf6a]/18 bg-[#f0bf6a]/10 text-[#f0bf6a]",
+  soon: "border-[#f0bf6a]/14 bg-white/4 text-[#cbb187]",
+};
+
 function DefaultSurface({ item, available }: { item: SectionItem; available: boolean }) {
   return (
     <div
@@ -11,29 +78,12 @@ function DefaultSurface({ item, available }: { item: SectionItem; available: boo
         available ? "min-h-[13.5rem]" : "min-h-[11rem]"
       } ${item.surfaceClassName}`}
     >
-      {available ? (
-        <div className="absolute inset-x-5 top-0 h-px bg-white/38" />
-      ) : (
-        <div className="absolute inset-x-5 top-0 h-px bg-white/18" />
-      )}
-
-      <div className="flex items-start justify-between gap-3 text-xs uppercase tracking-[0.28em] text-white/72">
-        <span>{item.index}</span>
-        <div className="flex items-center gap-2">
-          <span className="rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] tracking-[0.24em] text-white/88">
-            {item.category}
-          </span>
-          <span
-            className={`rounded-full px-2.5 py-1 text-[10px] tracking-[0.24em] ${
-              available
-                ? "border border-white/22 bg-black/12 text-white/88"
-                : "border border-white/16 bg-white/8 text-white/68"
-            }`}
-          >
-            {available ? "Live" : "Soon"}
-          </span>
-        </div>
-      </div>
+      <SurfaceHeader
+        item={item}
+        available={available}
+        tone={defaultTone}
+        rule={available ? "bg-white/38" : "bg-white/18"}
+      />
 
       <div className="relative space-y-2">
         <p className="text-xs uppercase tracking-[0.32em] text-white/70">{item.surfaceLabel}</p>
@@ -57,19 +107,7 @@ function LinguaflowSurface({ item, available }: { item: SectionItem; available: 
       } bg-[linear-gradient(180deg,#efedeb_0%,#e5e2de_100%)]`}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_12%,rgba(33,115,255,0.12),transparent_20%),radial-gradient(circle_at_18%_84%,rgba(255,255,255,0.55),transparent_24%)]" />
-      <div className="absolute inset-x-5 top-0 h-px bg-black/8" />
-
-      <div className="relative flex items-start justify-between gap-3 text-xs uppercase tracking-[0.28em] text-black/45">
-        <span>{item.index}</span>
-        <div className="flex items-center gap-2">
-          <span className="rounded-full border border-black/8 bg-white/55 px-2.5 py-1 text-[10px] tracking-[0.24em] text-black/62">
-            {item.category}
-          </span>
-          <span className="rounded-full border border-[#1f74ff]/10 bg-[#1f74ff]/12 px-2.5 py-1 text-[10px] tracking-[0.24em] text-[#1f74ff]">
-            Live
-          </span>
-        </div>
-      </div>
+      <SurfaceHeader item={item} available={available} tone={linguaTone} rule="bg-black/8" />
 
       <div className="relative mt-4 space-y-2">
         <p className="text-xs uppercase tracking-[0.32em] text-black/38">{item.surfaceLabel}</p>
@@ -134,19 +172,7 @@ function WolongTraderSurface({ item, available }: { item: SectionItem; available
       } bg-[radial-gradient(circle_at_50%_18%,rgba(231,157,59,0.16),transparent_22%),radial-gradient(circle_at_50%_48%,rgba(217,136,26,0.12),transparent_32%),linear-gradient(180deg,#0c0907_0%,#110d09_58%,#0a0807_100%)]`}
     >
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,194,102,0.04),transparent_22%,rgba(0,0,0,0.18)_100%)]" />
-      <div className="absolute inset-x-5 top-0 h-px bg-[#f0bf6a]/24" />
-
-      <div className="relative flex items-start justify-between gap-3 text-xs uppercase tracking-[0.28em] text-[#d7b98a]/66">
-        <span>{item.index}</span>
-        <div className="flex items-center gap-2">
-          <span className="rounded-full border border-[#f0bf6a]/18 bg-white/4 px-2.5 py-1 text-[10px] tracking-[0.24em] text-[#e6c38b]/82">
-            {item.category}
-          </span>
-          <span className="rounded-full border border-[#f0bf6a]/18 bg-[#f0bf6a]/10 px-2.5 py-1 text-[10px] tracking-[0.24em] text-[#f0bf6a]">
-            Live
-          </span>
-        </div>
-      </div>
+      <SurfaceHeader item={item} available={available} tone={wolongTone} rule="bg-[#f0bf6a]/24" />
 
       <div className="relative mt-4 flex flex-1 flex-col justify-center text-center">
         <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-[0.9rem] border border-[#f0bf6a]/20 bg-[linear-gradient(180deg,rgba(255,215,143,0.22),rgba(176,101,12,0.16))] shadow-[0_12px_30px_rgba(209,132,29,0.16)]">
@@ -221,7 +247,7 @@ function SectionCardBody({ item, available }: { item: SectionItem; available: bo
 
         <div className="flex items-center justify-between gap-4 border-t border-[var(--line)] pt-4 text-xs uppercase tracking-[0.28em] text-[var(--muted)]">
           <span className="text-[11px] tracking-[0.22em] text-[var(--muted)]/78">
-            {available ? "Available now" : "Awaiting domain"}
+            {available ? "Available now" : "即将上线 · Awaiting domain"}
           </span>
           <span className="flex items-center gap-3">
             <span className="transition-colors duration-300 group-hover:text-[var(--accent)]">{item.cta}</span>
@@ -242,7 +268,8 @@ function SectionCardBody({ item, available }: { item: SectionItem; available: bo
 
 export function SectionCard({ item }: SectionCardProps) {
   const available = Boolean(item.href);
-  const baseClassName = `group editorial-panel relative flex min-h-[22rem] flex-col overflow-hidden rounded-[1.75rem] ${
+  const delay = `${(Number(item.index) - 1) * 70}ms`;
+  const baseClassName = `group editorial-panel reveal relative flex min-h-[22rem] flex-col overflow-hidden rounded-[1.75rem] ${
     available
       ? "transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_34px_100px_rgba(44,38,32,0.14)]"
       : "cursor-default border-dashed bg-[rgba(251,248,242,0.62)] opacity-90"
@@ -250,7 +277,7 @@ export function SectionCard({ item }: SectionCardProps) {
 
   if (!available) {
     return (
-      <div aria-disabled="true" className={baseClassName}>
+      <div aria-disabled="true" style={{ animationDelay: delay }} className={baseClassName}>
         <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,rgba(102,112,95,0.22),rgba(102,112,95,0.02))]" />
         <SectionCardBody item={item} available={available} />
       </div>
@@ -258,7 +285,7 @@ export function SectionCard({ item }: SectionCardProps) {
   }
 
   return (
-    <a href={item.href} target="_blank" rel="noreferrer" className={baseClassName}>
+    <a href={item.href} target="_blank" rel="noreferrer" style={{ animationDelay: delay }} className={baseClassName}>
       <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,rgba(102,112,95,0.8),rgba(102,112,95,0.14))] opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
       <SectionCardBody item={item} available={available} />
     </a>

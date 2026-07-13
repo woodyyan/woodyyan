@@ -23,11 +23,11 @@ export function SiteFooter() {
       </div>
 
       <div className="grid gap-4">
-        <div className="editorial-panel rounded-[1.5rem] p-5">
+        <div className="editorial-panel reveal rounded-[1.5rem] p-5" style={{ animationDelay: "140ms" }}>
           <DailyNote />
         </div>
 
-        <div className="editorial-panel rounded-[1.5rem] p-5">
+        <div className="editorial-panel reveal rounded-[1.5rem] p-5" style={{ animationDelay: "220ms" }}>
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.28em] text-[var(--accent)]">Current</p>
             <div className="space-y-2 text-sm leading-7">

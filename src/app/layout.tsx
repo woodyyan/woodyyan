@@ -8,7 +8,7 @@ import "./globals.css";
 const display = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-display",
+  variable: "--font-cormorant",
 });
 
 const body = Noto_Sans_SC({
@@ -47,7 +47,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" className={`${display.variable} ${body.variable}`}>
-      <body>{children}</body>
+      <body>
+        <a href="#main" className="skip-link">
+          跳到主内容
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

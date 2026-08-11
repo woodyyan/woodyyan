@@ -1,51 +1,34 @@
 import type { heroContent } from "@/content/site-content";
 
-import { VisitorBadge } from "@/components/visitor-badge";
-import { siteMeta } from "@/content/site-meta";
-
 type HeroProps = {
   content: typeof heroContent;
 };
 
 export function Hero({ content }: HeroProps) {
   return (
-    <section className="grid gap-8 py-12 lg:grid-cols-[minmax(0,1.7fr)_minmax(290px,0.72fr)] lg:items-end lg:py-18">
-      <div className="space-y-6">
-        <div className="space-y-4">
-          <h1 className="font-display text-[clamp(3.25rem,11vw,9rem)] leading-[0.88] tracking-[-0.04em] text-balance">
-            {content.title}
-          </h1>
-          <p className="max-w-2xl font-display text-[1.9rem] italic leading-tight text-balance text-[var(--muted)] sm:text-[2.5rem]">
-            {content.subtitle}
-          </p>
-        </div>
+    <section className="py-16 sm:py-20 lg:py-28">
+      <div className="max-w-3xl space-y-7">
+        <h1 className="font-display text-[clamp(3.5rem,11vw,8rem)] leading-[0.9] tracking-[-0.04em] text-balance">
+          {content.title}
+        </h1>
 
-        <div className="max-w-lg space-y-2 text-base leading-8 text-[var(--text)]/78 sm:text-lg">
-          {content.description.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
+        <p className="font-display text-[clamp(1.6rem,3.4vw,2.4rem)] italic leading-tight text-balance text-[var(--muted)]">
+          {content.subtitle}
+        </p>
 
-        <div className="flex flex-wrap items-center gap-4 pt-2">
-          <a
-            href={content.primaryCta.href}
-            className="inline-flex items-center gap-3 rounded-full border border-[var(--text)]/80 bg-white/50 px-5 py-3 text-sm uppercase tracking-[0.22em] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:bg-[var(--background-strong)] hover:text-[var(--accent)]"
-          >
-            {content.primaryCta.label}
-            <span aria-hidden>↘</span>
-          </a>
-        </div>
-      </div>
+        <p className="max-w-xl text-sm leading-7 text-[var(--text)]/70 sm:text-base">
+          {content.description[0]}
+        </p>
 
-      <div className="editorial-panel rounded-[1.75rem] p-4 sm:p-5">
-        <div className="flex h-full flex-col gap-4">
-          <VisitorBadge />
-
-          <div className="flex items-center justify-between border-t border-[var(--line)] pt-3 text-[11px] uppercase tracking-[0.26em] text-[var(--muted)]">
-            <span>{siteMeta.updatedAt}</span>
-            <span>{siteMeta.location}</span>
-          </div>
-        </div>
+        <a
+          href={content.primaryCta.href}
+          className="group inline-flex items-center gap-3 pt-3 text-xs uppercase tracking-[0.24em] text-[var(--muted)] transition-colors duration-300 hover:text-[var(--accent)]"
+        >
+          {content.primaryCta.label}
+          <span aria-hidden className="text-base leading-none transition-transform duration-300 group-hover:translate-y-1">
+            ↓
+          </span>
+        </a>
       </div>
     </section>
   );

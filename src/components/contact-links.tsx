@@ -1,7 +1,6 @@
 type ContactLink = {
   label: string;
   href: string;
-  detail: string;
 };
 
 type ContactLinksProps = {
@@ -10,8 +9,8 @@ type ContactLinksProps = {
 
 export function ContactLinks({ links }: ContactLinksProps) {
   return (
-    <div className="grid gap-2 sm:grid-cols-2">
-      {links.map((link, index) => {
+    <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
+      {links.map((link) => {
         const isMail = link.href.startsWith("mailto:");
 
         return (
@@ -20,18 +19,13 @@ export function ContactLinks({ links }: ContactLinksProps) {
             href={link.href}
             target={isMail ? undefined : "_blank"}
             rel={isMail ? undefined : "noreferrer"}
-            className="group editorial-panel flex min-h-[4.9rem] items-center justify-between rounded-[1.15rem] px-3.5 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-[0_16px_32px_rgba(44,38,32,0.08)]"
+            className="group/link inline-flex items-baseline gap-1.5 text-sm tracking-[0.06em] text-[var(--text)]/85 transition-colors duration-300 hover:text-[var(--accent)]"
           >
-            <div className="space-y-1">
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--muted)]">
-                {String(index + 1).padStart(2, "0")} / {isMail ? "Direct" : "Open"}
-              </p>
-              <p className="font-display text-[1.08rem] leading-none tracking-[-0.015em] text-[var(--text)]">
-                {link.label}
-              </p>
-            </div>
-
-            <span className="inline-flex size-8 items-center justify-center rounded-full border border-[var(--line)] bg-white/58 text-[15px] text-[var(--muted)] transition-all duration-300 group-hover:border-[var(--accent)] group-hover:text-[var(--accent)]">
+            {link.label}
+            <span
+              aria-hidden
+              className="text-[11px] text-[var(--muted)] transition-all duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:text-[var(--accent)]"
+            >
               ↗
             </span>
           </a>

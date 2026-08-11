@@ -28,30 +28,21 @@ export function SiteHeader() {
           : "bg-transparent py-4"
       }`}
     >
-      <div className="flex items-center gap-3.5">
+      <a href="#main" className="flex items-center gap-3">
         <Image
           src="/icon.svg"
           alt={`${siteMeta.name} logo`}
-          width={44}
-          height={44}
-          className={`rounded-[1rem] border border-[var(--line)] bg-[var(--background-strong)]/78 p-2 shadow-[0_12px_28px_rgba(44,38,32,0.08)] transition-all duration-300 ${
-            compact ? "h-9 w-9" : "h-11 w-11"
+          width={40}
+          height={40}
+          className={`rounded-[0.9rem] border border-[var(--line)] bg-[var(--background-strong)]/78 p-2 transition-all duration-300 ${
+            compact ? "h-8 w-8" : "h-10 w-10"
           }`}
           priority
         />
-        <div>
-          <p className="font-display text-2xl leading-none tracking-[0.04em]">
-            {siteMeta.name}
-          </p>
-          <p
-            className={`text-xs uppercase tracking-[0.28em] text-[var(--muted)] transition-all duration-300 ${
-              compact ? "hidden" : "block"
-            }`}
-          >
-            Personal work index
-          </p>
-        </div>
-      </div>
+        <span className="font-display text-xl leading-none tracking-[0.04em]">
+          {siteMeta.name}
+        </span>
+      </a>
 
       <nav className="flex flex-wrap items-center gap-1 text-xs uppercase tracking-[0.24em] text-[var(--muted)] sm:justify-end">
         {navItems.map((item) => (

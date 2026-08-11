@@ -10,12 +10,5 @@ function getDailyNote() {
 }
 
 export function DailyNote() {
-  return (
-    <div className="space-y-2">
-      <p className="text-xs uppercase tracking-[0.28em] text-[var(--muted)]">
-        Daily note
-      </p>
-      <p className="max-w-xs text-sm leading-7 text-[var(--text)]/80">{getDailyNote()}</p>
-    </div>
-  );
+  return <span className="max-w-[16rem] truncate text-[11px] tracking-[0.06em] text-[var(--muted)]">{getDailyNote()}</span>;
 }

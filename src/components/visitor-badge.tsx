@@ -48,14 +48,5 @@ export function VisitorBadge() {
       : "Visitor note is taking a quiet pause."
     : "Counting quiet arrivals...";
 
-  return (
-    <div className="space-y-3 rounded-[1.5rem] border border-[var(--line)] bg-[var(--background)]/70 p-4">
-      <p className="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">
-        Visitor note
-      </p>
-      <p className="font-display text-4xl leading-none tracking-[-0.03em] text-[var(--text)]">
-        {label}
-      </p>
-    </div>
-  );
+  return <span className="text-[11px] uppercase tracking-[0.2em] text-[var(--muted)]">{label}</span>;
 }

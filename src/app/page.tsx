@@ -8,32 +8,21 @@ export const revalidate = 3600;
 
 export default function Home() {
   return (
-    <main id="main" tabIndex={-1} className="relative overflow-hidden px-5 py-5 sm:px-8 lg:px-10">
-      <div className="mx-auto flex min-h-[calc(100vh-2.5rem)] max-w-6xl flex-col rounded-[2rem] border border-[var(--line)] bg-white/44 px-5 pb-8 pt-4 shadow-[0_40px_120px_rgba(43,38,31,0.08)] backdrop-blur-sm sm:px-8 lg:px-12 lg:pb-12">
-        <SiteHeader />
-        <Hero content={heroContent} />
+    <main
+      id="main"
+      tabIndex={-1}
+      className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-5 py-5 sm:px-8 lg:px-10"
+    >
+      <SiteHeader />
+      <Hero content={heroContent} />
 
-        <section
-          id="work"
-          className="grid gap-6 border-t border-[var(--line)] py-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,2fr)] lg:gap-10"
-        >
-          <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.28em] text-[var(--accent)]">
-              Overview
-            </p>
-            <h2 className="font-display text-4xl leading-none text-balance sm:text-5xl">
-              Current spaces.
-            </h2>
-            <p className="max-w-sm text-sm leading-7 text-[var(--muted)] sm:text-base">
-              这里会继续增加，按工具、阅读、交易、影像与音乐展开。已上线的可直接进入，未上线的先保留位置。
-            </p>
-          </div>
+      <section id="work" className="py-6 sm:py-8">
+        <SectionGrid items={sectionItems} />
+      </section>
 
-          <SectionGrid items={sectionItems} />
-        </section>
+      <div className="flex-1" />
 
-        <SiteFooter />
-      </div>
+      <SiteFooter />
     </main>
   );
 }

@@ -48,5 +48,5 @@ export function VisitorBadge() {
       : "Visitor note is taking a quiet pause."
     : "Counting quiet arrivals...";
 
-  return <span className="text-[11px] uppercase tracking-[0.2em] text-[var(--muted)]">{label}</span>;
+  return <span role="status" aria-live="polite">{label}</span>;
 }

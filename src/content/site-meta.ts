@@ -6,8 +6,8 @@ export const siteMeta = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com",
   contactEmail: "woodyyan@outlook.com",
   location: "Hangzhou / Online",
-  updatedAt: "March 2026",
-  accent: "#66705F",
+  updatedAt: "October 2026",
+  accent: "#315BEB",
 } as const;
 
 export const socialLinks = [

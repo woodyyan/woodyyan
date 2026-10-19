@@ -8,17 +8,21 @@ type SectionGridProps = {
 
 export function SectionGrid({ items }: SectionGridProps) {
   return (
-    <div>
-      <div className="flex items-baseline justify-between pb-5 text-[11px] uppercase tracking-[0.22em] text-[var(--muted)]">
-        <span>Index</span>
-        <span>{items.length} entries</span>
+    <div className="section-layout">
+      <div className="section-heading">
+        <h2 id="work-title">Index</h2>
+        <span className="section-count">
+          <strong>{String(items.length).padStart(2, "0")}</strong> entries
+        </span>
       </div>
 
-      <div className="border-t border-[var(--line)]">
+      <ol className="work-list" aria-label="作品索引">
         {items.map((item) => (
-          <SectionCard key={item.id} item={item} />
+          <li key={item.id}>
+            <SectionCard item={item} />
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   );
 }

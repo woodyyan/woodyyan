@@ -19,33 +19,29 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "72px",
-          position: "relative",
-          backgroundColor: "#F3EFE8",
-          color: "#161514",
-          border: "1px solid rgba(56,51,45,0.14)",
+          padding: "64px 72px",
+          backgroundColor: "#F7F8FA",
+          color: "#182230",
+          fontFamily: "sans-serif",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "radial-gradient(circle at 12% 14%, rgba(102,112,95,0.16), transparent 28%)",
-          }}
-        />
-        <div style={{ fontSize: 24, letterSpacing: "0.45em", textTransform: "uppercase", color: "#66705F", position: "relative" }}>
-          Personal index
+        <div style={{ display: "flex", alignItems: "center", gap: 16, paddingBottom: 24, borderBottom: "1px solid #DCE1E8" }}>
+          <svg width="40" height="40" viewBox="0 0 96 96" fill="none">
+            <rect width="96" height="96" rx="24" fill="#FFFFFF" />
+            <path d="M24 65V31h8.6l15.8 23.4L64.4 31H73v34h-7.8V43.2L50.8 64h-4.6L31.8 43.2V65H24Z" fill="#182230" />
+            <circle cx="74" cy="25" r="6" fill={siteMeta.accent} />
+          </svg>
+          <span style={{ fontSize: 22, color: "#626D7C" }}>Personal index</span>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-          <div style={{ fontSize: 108, fontFamily: "serif", lineHeight: 0.95 }}>
-            {siteMeta.name}
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          <div style={{ display: "flex", fontSize: 120, fontWeight: 700, letterSpacing: "-0.065em", lineHeight: 1 }}>
+            {siteMeta.name}<span style={{ color: siteMeta.accent }}>.</span>
           </div>
-          <div style={{ fontSize: 36, color: "rgba(23,19,17,0.68)", maxWidth: 880 }}>
+          <div style={{ fontSize: 30, color: "#626D7C" }}>
             Digital work, photographs, songs.
           </div>
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "rgba(23,19,17,0.62)" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", paddingTop: 24, borderTop: "1px solid #DCE1E8", fontSize: 20, color: "#626D7C" }}>
           <span>{siteMeta.updatedAt}</span>
           <span>{siteMeta.location}</span>
         </div>

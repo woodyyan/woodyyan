@@ -9,7 +9,7 @@ type ContactLinksProps = {
 
 export function ContactLinks({ links }: ContactLinksProps) {
   return (
-    <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
+    <div className="contact-links">
       {links.map((link) => {
         const isMail = link.href.startsWith("mailto:");
 
@@ -18,16 +18,14 @@ export function ContactLinks({ links }: ContactLinksProps) {
             key={link.label}
             href={link.href}
             target={isMail ? undefined : "_blank"}
-            rel={isMail ? undefined : "noreferrer"}
-            className="group/link inline-flex items-baseline gap-1.5 text-sm tracking-[0.06em] text-[var(--text)]/85 transition-colors duration-300 hover:text-[var(--accent)]"
+            rel={isMail ? undefined : "noopener noreferrer"}
+            className="contact-link"
           >
             {link.label}
-            <span
-              aria-hidden
-              className="text-[11px] text-[var(--muted)] transition-all duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:text-[var(--accent)]"
-            >
-              ↗
-            </span>
+            <svg className="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+            {!isMail && <span className="sr-only">（在新窗口打开）</span>}
           </a>
         );
       })}

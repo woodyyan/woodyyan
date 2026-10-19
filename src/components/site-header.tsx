@@ -21,36 +21,22 @@ export function SiteHeader() {
   }, []);
 
   return (
-    <header
-      className={`sticky top-0 z-30 flex flex-col gap-3 border-b border-[var(--line)] text-sm transition-all duration-300 sm:flex-row sm:items-center sm:justify-between ${
-        compact
-          ? "bg-[var(--header-bg)] py-2.5 backdrop-blur-md"
-          : "bg-transparent py-4"
-      }`}
-    >
-      <a href="#main" className="flex items-center gap-3">
+    <header className="site-header" data-compact={compact}>
+      <a href="#main" className="brand">
         <Image
           src="/icon.svg"
-          alt={`${siteMeta.name} logo`}
-          width={40}
-          height={40}
-          className={`rounded-[0.9rem] border border-[var(--line)] bg-[var(--background-strong)]/78 p-2 transition-all duration-300 ${
-            compact ? "h-8 w-8" : "h-10 w-10"
-          }`}
+          alt=""
+          width={38}
+          height={38}
+          className="brand-icon"
           priority
         />
-        <span className="font-display text-xl leading-none tracking-[0.04em]">
-          {siteMeta.name}
-        </span>
+        <span>{siteMeta.name}</span>
       </a>
 
-      <nav className="flex flex-wrap items-center gap-1 text-xs uppercase tracking-[0.24em] text-[var(--muted)] sm:justify-end">
+      <nav className="site-nav" aria-label="主导航">
         {navItems.map((item) => (
-          <a
-            key={item.href}
-            href={item.href}
-            className="inline-flex min-h-[var(--tap-min)] items-center rounded-full px-3 transition-colors duration-300 hover:text-[var(--accent)]"
-          >
+          <a key={item.href} href={item.href}>
             {item.label}
           </a>
         ))}

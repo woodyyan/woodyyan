@@ -8,21 +8,18 @@ export const revalidate = 3600;
 
 export default function Home() {
   return (
-    <main
-      id="main"
-      tabIndex={-1}
-      className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-5 py-5 sm:px-8 lg:px-10"
-    >
+    <div className="site-shell">
       <SiteHeader />
-      <Hero content={heroContent} />
 
-      <section id="work" className="py-6 sm:py-8">
-        <SectionGrid items={sectionItems} />
-      </section>
+      <main id="main" tabIndex={-1}>
+        <Hero content={heroContent} />
 
-      <div className="flex-1" />
+        <section id="work" aria-labelledby="work-title" className="work-section">
+          <SectionGrid items={sectionItems} />
+        </section>
+      </main>
 
       <SiteFooter />
-    </main>
+    </div>
   );
 }

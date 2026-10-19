@@ -13,13 +13,13 @@ export function SectionCard({ item }: SectionCardProps) {
       <span className="work-title">{item.title}</span>
       <span className="work-category">{item.category}</span>
       <span className="work-status">
-        <span className="status-dot" aria-hidden="true" />
+        <span className="status-mark" aria-hidden="true" />
         {available ? "Live" : "Soon"}
       </span>
       <span className="work-arrow" aria-hidden="true">
         {available ? (
-          <svg className="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M7 17 17 7M7 7h10v10" />
+          <svg className="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter">
+            <path d="M8 18 16 6M6 6h10v12" />
           </svg>
         ) : (
           <span>—</span>

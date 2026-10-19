@@ -22,8 +22,8 @@ export function ContactLinks({ links }: ContactLinksProps) {
             className="contact-link"
           >
             {link.label}
-            <svg className="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M7 17 17 7M7 7h10v10" />
+            <svg className="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter" aria-hidden="true">
+              <path d="M8 18 16 6M6 6h10v12" />
             </svg>
             {!isMail && <span className="sr-only">（在新窗口打开）</span>}
           </a>

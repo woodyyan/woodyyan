@@ -26,8 +26,8 @@ export function SiteHeader() {
         <Image
           src="/icon.svg?v=split-y"
           alt=""
-          width={38}
-          height={38}
+          width={44}
+          height={44}
           className="brand-icon"
           priority
         />

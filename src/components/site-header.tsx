@@ -24,7 +24,7 @@ export function SiteHeader() {
     <header className="site-header" data-compact={compact}>
       <a href="#main" className="brand">
         <Image
-          src="/icon.svg"
+          src="/icon.svg?v=split-y"
           alt=""
           width={38}
           height={38}

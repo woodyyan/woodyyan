@@ -26,10 +26,10 @@ export default function OpenGraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16, paddingBottom: 24, borderBottom: "1px solid #DCE1E8" }}>
-          <svg width="40" height="40" viewBox="0 0 96 96" fill="none">
-            <rect width="96" height="96" rx="24" fill="#FFFFFF" />
-            <path d="M24 65V31h8.6l15.8 23.4L64.4 31H73v34h-7.8V43.2L50.8 64h-4.6L31.8 43.2V65H24Z" fill="#182230" />
-            <circle cx="74" cy="25" r="6" fill={siteMeta.accent} />
+          <svg width="40" height="40" viewBox="0 0 1024 1024" fill="none">
+            <rect width="1024" height="1024" rx="256" fill="#F7F8FA" />
+            <path d="M192 192H384L584 492V832H440V564Z" fill="#182230" />
+            <path d="M640 192H832L640 480L544 336Z" fill={siteMeta.accent} />
           </svg>
           <span style={{ fontSize: 22, color: "#626D7C" }}>Personal index</span>
         </div>

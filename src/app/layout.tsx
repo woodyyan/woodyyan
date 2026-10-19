@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   title: siteMeta.title,
   description: siteMeta.description,
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
+    icon: "/icon.svg?v=split-y",
+    shortcut: "/icon.svg?v=split-y",
   },
   openGraph: {
     title: siteMeta.title,

@@ -1,5 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none">
-  <rect width="96" height="96" rx="24" fill="#F7F8FA"/>
-  <path d="M24 65V31h8.6l15.8 23.4L64.4 31H73v34h-7.8V43.2L50.8 64h-4.6L31.8 43.2V65H24Z" fill="#182230"/>
-  <circle cx="74" cy="25" r="6" fill="#315BEB"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none">
+  <!-- Woody Yan / Split Y. Grid: 8 units. Mark: 640 x 640; margin: 192.
+       Stem: 144 (18 units). Diagonal slope: 3:2; horizontal arm width: 192.
+       Parallel cut: 96 / sqrt(1 + 1.5^2) = 53.251 units.
+       Stem axis: x=512. The y=492 junction uses a 4-unit half-grid
+       intersection to preserve the 3:2 slope and 144-unit stem width.
+       Two closed outlines; no fonts, strokes, filters or embedded images. -->
+  <rect width="1024" height="1024" rx="256" fill="#F7F8FA"/>
+  <path d="M192 192H384L584 492V832H440V564Z" fill="#182230"/>
+  <path d="M640 192H832L640 480L544 336Z" fill="#315BEB"/>
 </svg>

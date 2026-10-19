@@ -205,7 +205,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .work-row {
   position: relative;
   display: grid;
-  grid-template-columns: 32px minmax(0, 1fr) 88px 64px 36px;
+  grid-template-columns: 32px minmax(0, 1fr) 40px 64px 36px;
   align-items: center;
   gap: 20px;
   min-height: 88px;
@@ -228,7 +228,19 @@ a.work-row:focus-visible { z-index: 1; outline-offset: -2px; }
 .work-index { color: var(--muted); font-family: var(--font-code); font-size: 0.6875rem; font-variant-numeric: tabular-nums; }
 .work-title { min-width: 0; font-size: clamp(1rem, 1.5vw, 1.1875rem); font-weight: 500; line-height: 1.55; letter-spacing: -0.02em; overflow-wrap: anywhere; transition: color var(--motion-fast); }
 a.work-row:hover .work-title, a.work-row:focus-visible .work-title { color: var(--accent-strong); }
-.work-category { color: var(--muted); font-family: var(--font-code); font-size: 0.6875rem; line-height: 1.6; }
+.work-category {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  width: 28px;
+  height: 28px;
+  color: var(--muted);
+  transition: color var(--motion-fast);
+}
+.category-icon { display: block; flex: none; width: 20px; height: 20px; }
+a.work-row:hover .work-category,
+a.work-row:focus-visible .work-category { color: var(--accent-strong); }
 .work-status { display: inline-flex; align-items: center; justify-content: flex-start; gap: 6px; color: var(--accent-strong); font-family: var(--font-code); font-size: 0.6875rem; line-height: 1.6; }
 .status-mark { width: 9px; height: 9px; flex: none; background: currentColor; clip-path: polygon(6px 0, 100% 0, 3px 100%, 0 100%); }
 .work-arrow { display: grid; place-items: center; width: 36px; height: 36px; border-radius: var(--radius); color: var(--muted); transition: color var(--motion-fast), background var(--motion-fast); }

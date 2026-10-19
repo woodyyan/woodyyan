@@ -1,3 +1,4 @@
+import { CategoryIcon } from "@/components/category-icon";
 import type { SectionItem } from "@/content/site-content";
 
 type SectionCardProps = {
@@ -11,7 +12,10 @@ export function SectionCard({ item }: SectionCardProps) {
     <>
       <span className="work-index" aria-hidden="true">{item.index}</span>
       <span className="work-title">{item.title}</span>
-      <span className="work-category">{item.category}</span>
+      <span className="work-category" title={item.category}>
+        <CategoryIcon category={item.category} />
+        <span className="sr-only">分类：{item.category}</span>
+      </span>
       <span className="work-status">
         <span className="status-mark" aria-hidden="true" />
         {available ? "Live" : "Soon"}

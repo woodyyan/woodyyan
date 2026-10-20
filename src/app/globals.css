@@ -205,7 +205,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .work-row {
   position: relative;
   display: grid;
-  grid-template-columns: 32px minmax(0, 1fr) 40px 64px 36px;
+  grid-template-columns: 32px minmax(0, 1fr) 64px 36px;
   align-items: center;
   gap: 20px;
   min-height: 88px;
@@ -226,6 +226,8 @@ a.work-row:hover, a.work-row:focus-visible { background: var(--accent-soft); }
 a.work-row:hover::before, a.work-row:focus-visible::before { opacity: 1; }
 a.work-row:focus-visible { z-index: 1; outline-offset: -2px; }
 .work-index { color: var(--muted); font-family: var(--font-code); font-size: 0.6875rem; font-variant-numeric: tabular-nums; }
+/* Fixed icon track keeps every icon and title aligned, even when titles wrap. */
+.work-heading { display: grid; grid-template-columns: 28px minmax(0, 1fr); align-items: center; gap: 12px; min-width: 0; }
 .work-title { min-width: 0; font-size: clamp(1rem, 1.5vw, 1.1875rem); font-weight: 500; line-height: 1.55; letter-spacing: -0.02em; overflow-wrap: anywhere; transition: color var(--motion-fast); }
 a.work-row:hover .work-title, a.work-row:focus-visible .work-title { color: var(--accent-strong); }
 .work-category {
@@ -269,11 +271,7 @@ a.work-row:hover .work-arrow .link-arrow { transform: translate(1px, -1.5px); }
   .hero h1 { font-size: clamp(3rem, 7.5vw, 5rem); }
   .hero-description { max-width: 25rem; }
   .work-row { grid-template-columns: 24px minmax(0, 1fr) 56px 32px; gap: 4px 16px; padding: 18px 16px; }
-  .work-index { grid-column: 1; grid-row: 1 / 3; }
-  .work-title { grid-column: 2; grid-row: 1; }
-  .work-category { grid-column: 2; grid-row: 2; }
-  .work-status { grid-column: 3; grid-row: 1 / 3; }
-  .work-arrow { grid-column: 4; grid-row: 1 / 3; width: 32px; height: 32px; }
+  .work-arrow { width: 32px; height: 32px; }
 }
 
 @media (max-width: 639px) {

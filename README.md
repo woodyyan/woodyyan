@@ -30,10 +30,15 @@ Woody Yan，做产品，也写代码。
   一个放在 Mac 上就能随手使用的翻译小工具，覆盖中英互译与简繁转换。  
   https://github.com/woodyyan/LinguaFlow
 
-### 正在生长
+- **Woody's Frames - Woody的取景框**  
+  留给光线、地点和路过时想保留的片刻。  
+  https://frames.woodyyan.com/
 
-- **Photo Journal**  
-  留给光线、地点和路过时想保留的片刻。
+- **In-Tune - 音准训练**  
+  把听不准的音一个个练准。  
+  https://intune.woodyyan.com/
+
+### 正在生长
 
 - **Song Drafts**  
   留给旋律、词句和那些还没有完成的情绪。
